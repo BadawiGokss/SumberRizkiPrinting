@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>SUMBER RIZKI -PRINTING- — Custom Banner & Sticker Studio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter, Space Grotesk, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        ink: '#142111',
+                        paper: '#FFFFFF',
+                        surface: '#F7FAF6',
+                        hairline: '#D4E8CE',
+                        brandGreen: '#3CA315',
+                        brandBright: '#4CC417',
+                        brandDark: '#26730B',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Editorial Sharp Minimalist Styling with Logo Green Neon Borders */
+        * {
+            border-radius: 0px !important;
+            box-sizing: border-box;
+        }
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7FAF6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3CA315;
+        }
+
+        /* Hide horizontal scrollbar on mobile sub-nav bar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Signature Logo Green Neon Box Styling */
+        .neon-box {
+            border: 1.5px solid #4CC417;
+            box-shadow: 0 0 12px rgba(76, 196, 23, 0.22), inset 0 0 6px rgba(76, 196, 23, 0.06);
+            transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+        }
+        .neon-box:hover {
+            border-color: #3CA315;
+            box-shadow: 0 0 18px rgba(76, 196, 23, 0.42), inset 0 0 10px rgba(76, 196, 23, 0.12);
+        }
+        .neon-box-static {
+            border: 1.5px solid #4CC417;
+            box-shadow: 0 0 12px rgba(76, 196, 23, 0.22), inset 0 0 6px rgba(76, 196, 23, 0.06);
+        }
+        .neon-input {
+            border: 1.5px solid #4CC417;
+            box-shadow: 0 0 8px rgba(76, 196, 23, 0.14);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .neon-input:focus {
+            outline: none;
+            border-color: #26730B;
+            box-shadow: 0 0 14px rgba(76, 196, 23, 0.36);
+        }
+
+        /* Active Page Transition */
+        .page-view {
+            animation: pageFadeIn 0.22s ease-out;
+        }
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Print Media Query: Isolate Official Receipt Only */
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+            #receipt-modal,
+            #receipt-modal * {
+                visibility: visible !important;
+            }
+            #receipt-modal {
+                position: fixed !important;
+                inset: 0 !important;
+                background: #FFFFFF !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+            #receipt-printable-area {
+                box-shadow: none !important;
+                border: 1.5px solid #26730B !important;
+                width: 100% !important;
+                max-width: 420px !important;
+                margin: 0 auto !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-brandGreen selection:text-white min-h-screen flex flex-col justify-between">
+
+    <div class="w-full overflow-x-hidden">
+        <!-- Top Operational Bar (Mobile-Safe Compact Text) -->
+        <div class="border-b border-brandBright/40 bg-brandDark text-white text-[10px] sm:text-[11px] font-mono tracking-wider uppercase">
+            <div class="max-w-[1440px] mx-auto px-3 sm:px-8 py-1.5 sm:py-2 flex flex-col sm:flex-row items-center justify-between gap-0.5 sm:gap-1 text-center sm:text-left">
+                <div class="flex items-center justify-center sm:justify-start gap-1.5">
+                    <span class="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandBright shadow-[0_0_8px_#4CC417] shrink-0"></span>
+                    <span>SENIN – SABTU • 08:00 – 17:00 WIB</span>
+                </div>
+                <div class="text-white/90 text-[9px] sm:text-[11px]">
+                    LEUWILIANG, KAB. BOGOR • KIRIM FILE VIA WA
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Editorial Header (Calibrated 62px on Mobile, 80px on Desktop) -->
+        <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-sm border-b border-brandBright/50 shadow-[0_2px_12px_rgba(76,196,23,0.1)]">
+            <div class="max-w-[1440px] mx-auto px-3 sm:px-8 h-[62px] sm:h-20 grid grid-cols-3 items-center gap-1">
+                
+                <!-- Left Hamburger & Desktop Multi-Page Navigation -->
+                <div class="flex items-center gap-3 lg:gap-6">
+                    <button id="nav-drawer-open-btn" class="p-2 sm:p-2.5 neon-box bg-paper text-brandDark hover:bg-surface transition flex items-center gap-1.5 shrink-0" aria-label="Buka Menu Navigasi">
+                        <i data-lucide="menu" class="w-4 h-4 sm:w-5 sm:h-5 text-brandGreen"></i>
+                        <span class="hidden sm:inline lg:hidden text-[11px] font-mono font-bold uppercase">MENU</span>
+                    </button>
+
+                    <nav class="hidden lg:flex items-center gap-5 text-[11px] font-bold tracking-[0.13em] uppercase">
+                        <button type="button" data-page-target="beranda" class="top-nav-link py-1.5 border-b-2 border-brandGreen text-brandGreen transition">
+                            BERANDA
+                        </button>
+                        <button type="button" data-page-target="katalog" class="top-nav-link py-1.5 border-b-2 border-transparent text-ink hover:text-brandGreen transition">
+                            KATALOG
+                        </button>
+                        <button type="button" data-page-target="kalkulator" class="top-nav-link py-1.5 border-b-2 border-transparent text-ink hover:text-brandGreen transition">
+                            KALKULATOR
+                        </button>
+                        <button type="button" data-page-target="cara-order" class="top-nav-link py-1.5 border-b-2 border-transparent text-ink hover:text-brandGreen transition">
+                            CARA ORDER
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Center Brand Logo (Always navigates to BERANDA) -->
+                <div class="flex justify-center overflow-hidden">
+                    <button type="button" data-page-target="beranda" class="inline-flex items-center justify-center group focus:outline-none max-w-full" aria-label="SUMBER RIZKI PRINTING Beranda">
+                        <div id="header-logo-mount" class="h-10 sm:h-14 flex items-center justify-center">
+                            <!-- Transparent Logo rendered by JS -->
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Right Controls: Currency, Search, Cart -->
+                <div class="flex items-center justify-end gap-1.5 sm:gap-3.5 text-xs font-mono">
+                    <span class="hidden md:inline-block neon-box-static px-2.5 py-1.5 text-[11px] font-bold text-brandDark bg-surface">
+                        IDR
+                    </span>
+
+                    <button id="search-toggle-btn" class="p-2 sm:p-2.5 neon-box bg-paper text-brandDark hover:bg-surface transition shrink-0" aria-label="Cari Produk">
+                        <i data-lucide="search" class="w-4 h-4 text-brandGreen"></i>
+                    </button>
+
+                    <button id="cart-open-btn" class="flex items-center gap-1.5 sm:gap-2 border-[1.5px] border-brandBright bg-brandGreen text-white px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-bold tracking-wider uppercase hover:bg-brandDark transition shadow-[0_0_12px_rgba(76,196,23,0.35)] shrink-0">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span class="hidden sm:inline">CART</span>
+                        <span>(<span id="header-cart-count">0</span>)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile-Only Horizontal Scrollable Quick Page Tabs -->
+            <div class="lg:hidden border-t border-brandBright/30 bg-surface/95 overflow-x-auto no-scrollbar">
+                <div class="flex items-center px-3 py-1.5 gap-2 min-w-max">
+                    <button type="button" data-page-target="beranda" class="mobile-sub-link px-3 py-1.5 text-[10px] font-bold tracking-wider uppercase bg-brandGreen text-white border border-brandBright">
+                        BERANDA
+                    </button>
+                    <button type="button" data-page-target="katalog" class="mobile-sub-link px-3 py-1.5 text-[10px] font-bold tracking-wider uppercase bg-paper text-ink border border-brandBright/50">
+                        KATALOG
+                    </button>
+                    <button type="button" data-page-target="kalkulator" class="mobile-sub-link px-3 py-1.5 text-[10px] font-bold tracking-wider uppercase bg-paper text-ink border border-brandBright/50">
+                        KALKULATOR
+                    </button>
+                    <button type="button" data-page-target="cara-order" class="mobile-sub-link px-3 py-1.5 text-[10px] font-bold tracking-wider uppercase bg-paper text-ink border border-brandBright/50">
+                        CARA ORDER
+                    </button>
+                </div>
+            </div>
+
+            <!-- Expandable Search Bar -->
+            <div id="search-bar" class="hidden border-t border-brandBright/40 bg-surface">
+                <div class="max-w-[1440px] mx-auto px-3 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2.5">
+                    <i data-lucide="search" class="w-4 h-4 text-brandGreen shrink-0"></i>
+                    <input type="text" id="search-input" placeholder="CARI BANNER, SPANDUK, STIKER..." class="w-full bg-transparent text-xs font-mono uppercase text-ink focus:outline-none">
+                    <button id="search-close-btn" class="text-[11px] font-mono font-bold uppercase text-brandDark underline shrink-0">TUTUP</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- LEFT SLIDE-OVER NAVIGATION DRAWER (CLEAN — NO NUMBERS)       -->
+        <!-- ============================================================ -->
+        <div id="nav-drawer" class="fixed inset-0 z-50 hidden">
+            <div id="nav-drawer-backdrop" class="fixed inset-0 bg-ink/50 backdrop-blur-[1px]"></div>
+
+            <aside class="fixed inset-y-0 left-0 w-[85vw] max-w-xs bg-paper border-r-2 border-brandBright shadow-[0_0_28px_rgba(76,196,23,0.3)] flex flex-col justify-between z-10">
+                <div>
+                    <!-- Drawer Top -->
+                    <div class="px-5 h-[62px] sm:h-20 border-b border-brandBright/40 flex items-center justify-between bg-surface">
+                        <span class="text-xs font-mono font-bold tracking-widest uppercase text-brandDark">NAVIGASI MENU</span>
+                        <button id="nav-drawer-close-btn" class="p-2 neon-box bg-paper text-brandDark hover:bg-brandGreen hover:text-white transition" aria-label="Tutup Menu">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Clean Page Links (Strictly NO numbers 01/02/03) -->
+                    <nav class="p-4 sm:p-5 space-y-2.5">
+                        <button type="button" data-page-target="beranda" class="drawer-nav-link w-full text-left px-4 py-3 text-xs font-bold tracking-[0.14em] uppercase neon-box bg-brandGreen text-white flex items-center justify-between">
+                            <span>BERANDA</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+
+                        <button type="button" data-page-target="katalog" class="drawer-nav-link w-full text-left px-4 py-3 text-xs font-bold tracking-[0.14em] uppercase neon-box bg-paper text-ink hover:bg-surface flex items-center justify-between">
+                            <span>KATALOG PRODUK</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-brandGreen"></i>
+                        </button>
+
+                        <button type="button" data-page-target="kalkulator" class="drawer-nav-link w-full text-left px-4 py-3 text-xs font-bold tracking-[0.14em] uppercase neon-box bg-paper text-ink hover:bg-surface flex items-center justify-between">
+                            <span>KALKULATOR UKURAN</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-brandGreen"></i>
+                        </button>
+
+                        <button type="button" data-page-target="cara-order" class="drawer-nav-link w-full text-left px-4 py-3 text-xs font-bold tracking-[0.14em] uppercase neon-box bg-paper text-ink hover:bg-surface flex items-center justify-between">
+                            <span>CARA ORDER</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-brandGreen"></i>
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Drawer Bottom Studio Info -->
+                <div class="p-5 border-t border-brandBright/40 bg-surface space-y-2.5 text-[11px] font-mono">
+                    <div class="flex items-center justify-between text-brandDark font-bold">
+                        <span>MATA UANG: IDR</span>
+                        <span>LEUWILIANG</span>
+                    </div>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Senin – Sabtu • 08:00 – 17:00 WIB
+                    </p>
+                    <a href="https://wa.me/6285339216757" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 bg-brandGreen text-white font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-brandDark transition">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current shrink-0" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/></svg>
+                        <span>WA: 0853-3921-6757</span>
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- MAIN MULTI-PAGE CONTENT CONTAINER                            -->
+        <!-- ============================================================ -->
+        <main class="w-full">
+
+            <!-- ======================================================== -->
+            <!-- PAGE 1: BERANDA (HOME PAGE VIEW)                         -->
+            <!-- ======================================================== -->
+            <section id="page-beranda" class="page-view">
+                <div class="max-w-[1440px] mx-auto px-3 sm:px-8 py-6 sm:py-14">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-stretch">
+                        
+                        <!-- Left Hero Column -->
+                        <div class="lg:col-span-7 neon-box-static bg-paper p-5 sm:p-10 lg:p-14 flex flex-col justify-between">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono uppercase text-brandDark font-bold">
+                                <span class="px-2 py-1 bg-surface border border-brandBright">[ STUDIO PERCETAKAN DIGITAL ]</span>
+                                <span>BOGOR — INDONESIA</span>
+                            </div>
+
+                            <div class="my-7 sm:my-12 space-y-4 sm:space-y-6">
+                                <h1 class="font-display text-[28px] leading-[1.06] sm:text-5xl lg:text-6xl font-bold tracking-tight uppercase sm:leading-[0.98] text-ink break-words">
+                                    CETAK BANNER<br/>
+                                    &amp; STIKER CUSTOM<br/>
+                                    <span class="text-brandGreen">PRESISI UKURAN.</span>
+                                </h1>
+                                <p class="text-xs sm:text-sm text-neutral-600 max-w-lg leading-relaxed">
+                                    Layanan cetak spanduk outdoor/indoor dan stiker label custom per ukuran. Hitung estimasi biaya secara otomatis, cetak struk pesanan resmi, dan kirim file siap cetak langsung ke WhatsApp produksi kami.
+                                </p>
+
+                                <div class="pt-1 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
+                                    <button type="button" data-page-target="katalog" class="w-full sm:w-auto justify-center bg-brandGreen text-white border-[1.5px] border-brandBright px-6 py-3.5 sm:py-4 text-xs font-bold tracking-[0.14em] uppercase hover:bg-brandDark transition inline-flex items-center gap-2.5 shadow-[0_0_16px_rgba(76,196,23,0.35)]">
+                                        <span>BUKA KATALOG PRODUK</span>
+                                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </button>
+                                    <button type="button" data-page-target="kalkulator" class="w-full sm:w-auto justify-center neon-box bg-paper text-brandDark px-6 py-3.5 sm:py-4 text-xs font-bold tracking-[0.14em] uppercase hover:bg-surface transition inline-flex items-center gap-2">
+                                        <span>HITUNG DI KALKULATOR</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Standard Rate Strip -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-5 border-t border-brandBright/40">
+                                <div class="neon-box p-3.5 sm:p-4 bg-surface">
+                                    <p class="text-[10px] sm:text-[11px] font-mono text-brandDark font-bold uppercase">TARIF BANNER / SPANDUK</p>
+                                    <p class="font-display text-lg sm:text-2xl font-bold mt-1 text-ink">RP 15.000 <span class="text-[11px] sm:text-xs font-mono font-normal text-neutral-600">/ METER (M²)</span></p>
+                                </div>
+                                <div class="neon-box p-3.5 sm:p-4 bg-surface">
+                                    <p class="text-[10px] sm:text-[11px] font-mono text-brandDark font-bold uppercase">TARIF STIKER CUSTOM</p>
+                                    <p class="font-display text-lg sm:text-2xl font-bold mt-1 text-ink">RP 10.000 <span class="text-[11px] sm:text-xs font-mono font-normal text-neutral-600">/ 10 PCS</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Technical Print Blueprint Showcase -->
+                        <div class="lg:col-span-5 neon-box-static bg-surface p-5 sm:p-10 flex flex-col justify-between">
+                            <div class="flex items-center justify-between text-[10px] font-mono text-brandDark font-bold uppercase">
+                                <span>CMYK // 1440 DPI HIGH-RES</span>
+                                <span class="px-2 py-0.5 bg-brandGreen text-white">READY ORDER</span>
+                            </div>
+
+                            <div class="my-5 sm:my-8 neon-box-static bg-paper p-4 sm:p-6 space-y-3.5 font-mono text-xs">
+                                <div class="border-b border-brandBright/40 pb-2.5 flex items-center justify-between">
+                                    <span class="font-bold uppercase text-brandDark">LAYANAN UNGGULAN</span>
+                                    <span class="text-[10px] text-brandGreen font-bold">CUSTOM SIZE</span>
+                                </div>
+
+                                <div class="p-3.5 sm:p-4 bg-surface neon-box cursor-pointer" data-page-target="katalog">
+                                    <div class="flex flex-wrap items-center justify-between gap-1 font-bold text-ink">
+                                        <span>BANNER FLEXI CUSTOM</span>
+                                        <span class="text-brandGreen">RP 15.000/M²</span>
+                                    </div>
+                                    <p class="text-[11px] text-neutral-600 mt-1.5 leading-relaxed">Bebas tentukan Panjang × Lebar (cm/m). Termasuk pilihan finishing Mata Ayam / Lipat Pas.</p>
+                                </div>
+
+                                <div class="p-3.5 sm:p-4 bg-surface neon-box cursor-pointer" data-page-target="katalog">
+                                    <div class="flex flex-wrap items-center justify-between gap-1 font-bold text-ink">
+                                        <span>STIKER LABEL CUSTOM</span>
+                                        <span class="text-brandGreen">RP 10.000/10PCS</span>
+                                    </div>
+                                    <p class="text-[11px] text-neutral-600 mt-1.5 leading-relaxed">Ukuran bebas (mis. 5×5 cm, 7×4 cm). Pilihan Chromo, Vinyl Anti Air, Transparan + Cutting.</p>
+                                </div>
+
+                                <div class="p-3 bg-brandDark text-white text-[10px] sm:text-[11px] flex flex-wrap items-center justify-between gap-1">
+                                    <span>NOTA PESANAN:</span>
+                                    <span class="font-bold text-brandBright">STRUK OTOMATIS + WA ADMIN</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-brandDark font-bold">
+                                <span>WA: 0853-3921-6757</span>
+                                <span>IG: @SUMBERRIZKIPRINTING</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Page Navigation Cards on Beranda -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-5 mt-5 sm:mt-8">
+                        <button type="button" data-page-target="katalog" class="neon-box bg-paper p-4 sm:p-6 text-left hover:bg-surface flex items-center justify-between group">
+                            <div>
+                                <p class="text-[10px] font-mono font-bold text-brandGreen uppercase">PILIH BAHAN &amp; UKURAN</p>
+                                <h2 class="font-display text-base sm:text-lg font-bold uppercase mt-1 group-hover:text-brandDark">KATALOG PRODUK</h2>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-brandGreen shrink-0"></i>
+                        </button>
+
+                        <button type="button" data-page-target="kalkulator" class="neon-box bg-paper p-4 sm:p-6 text-left hover:bg-surface flex items-center justify-between group">
+                            <div>
+                                <p class="text-[10px] font-mono font-bold text-brandGreen uppercase">SIMULASI HARGA OTOMATIS</p>
+                                <h2 class="font-display text-base sm:text-lg font-bold uppercase mt-1 group-hover:text-brandDark">KALKULATOR UKURAN</h2>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-brandGreen shrink-0"></i>
+                        </button>
+
+                        <button type="button" data-page-target="cara-order" class="neon-box bg-paper p-4 sm:p-6 text-left hover:bg-surface flex items-center justify-between group">
+                            <div>
+                                <p class="text-[10px] font-mono font-bold text-brandGreen uppercase">PANDUAN &amp; CETAK STRUK</p>
+                                <h2 class="font-display text-base sm:text-lg font-bold uppercase mt-1 group-hover:text-brandDark">CARA ORDER</h2>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-brandGreen shrink-0"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================== -->
+            <!-- PAGE 2: KATALOG PRODUK (DEDICATED CATALOG VIEW)          -->
+            <!-- ======================================================== -->
+            <section id="page-katalog" class="page-view hidden">
+                <div class="max-w-[1440px] mx-auto px-3 sm:px-8 py-8 sm:py-14">
+                    <!-- Header & Category Filter -->
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-brandBright/40">
+                        <div>
+                            <p class="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-brandGreen font-bold mb-1">HALAMAN KATALOG // 2026</p>
+                            <h1 class="font-display text-2xl sm:text-4xl font-bold uppercase tracking-tight">KATALOG PRODUK CUSTOM</h1>
+                        </div>
+
+                        <!-- Filter Tabs -->
+                        <div class="flex flex-wrap gap-2">
+                            <button data-filter="ALL" class="catalog-filter-btn bg-brandGreen text-white border-[1.5px] border-brandBright px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition shadow-[0_0_12px_rgba(76,196,23,0.3)]">
+                                SEMUA (8)
+                            </button>
+                            <button data-filter="BANNER" class="catalog-filter-btn neon-box bg-paper text-ink hover:bg-surface px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition">
+                                BANNER CUSTOM
+                            </button>
+                            <button data-filter="STIKER" class="catalog-filter-btn neon-box bg-paper text-ink hover:bg-surface px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition">
+                                STIKER CUSTOM
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Grid with Neon Green Borders -->
+                    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-6 sm:mt-8">
+                        <!-- Rendered by JS -->
+                    </div>
+
+                    <!-- Empty Search State -->
+                    <div id="empty-catalog" class="hidden py-16 px-4 text-center neon-box-static bg-surface mt-6">
+                        <p class="font-display text-base sm:text-lg font-bold uppercase">PRODUK TIDAK DITEMUKAN</p>
+                        <p class="text-xs text-neutral-600 mt-1 font-mono">Coba kata kunci lain atau tampilkan semua katalog.</p>
+                        <button id="reset-catalog-btn" class="mt-4 bg-brandGreen text-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider hover:bg-brandDark transition">
+                            TAMPILKAN SEMUA
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================== -->
+            <!-- PAGE 3: KALKULATOR UKURAN (DEDICATED CALCULATOR VIEW)    -->
+            <!-- ======================================================== -->
+            <section id="page-kalkulator" class="page-view hidden">
+                <div class="max-w-[1440px] mx-auto px-3 sm:px-8 py-8 sm:py-14">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="mb-6 sm:mb-8">
+                            <p class="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-brandGreen font-bold mb-1">ESTIMASI BIAYA INSTAN</p>
+                            <h1 class="font-display text-2xl sm:text-4xl font-bold uppercase tracking-tight">KALKULATOR UKURAN CUSTOM</h1>
+                        </div>
+
+                        <div class="bg-paper neon-box-static">
+                            <!-- Switcher Tabs -->
+                            <div class="grid grid-cols-2 border-b-[1.5px] border-brandBright">
+                                <button type="button" id="quick-tab-banner" class="py-3.5 px-2.5 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase bg-brandGreen text-white transition text-center leading-snug">
+                                    BANNER (RP 15.000/M²)
+                                </button>
+                                <button type="button" id="quick-tab-stiker" class="py-3.5 px-2.5 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase bg-paper text-ink hover:bg-surface transition border-l-[1.5px] border-brandBright text-center leading-snug">
+                                    STIKER (RP 10.000/10PCS)
+                                </button>
+                            </div>
+
+                            <!-- Banner Quick Form -->
+                            <div id="quick-panel-banner" class="p-4 sm:p-8 space-y-5">
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">SATUAN</label>
+                                        <select id="qb-unit" class="w-full neon-input bg-paper px-2.5 py-2.5 text-xs font-mono font-bold">
+                                            <option value="cm">CM</option>
+                                            <option value="m">METER (M)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">PANJANG (<span class="qb-unit-label">CM</span>)</label>
+                                        <input type="number" id="qb-length" value="200" min="1" step="any" class="w-full neon-input px-2.5 py-2.5 text-xs font-mono font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">LEBAR (<span class="qb-unit-label">CM</span>)</label>
+                                        <input type="number" id="qb-width" value="100" min="1" step="any" class="w-full neon-input px-2.5 py-2.5 text-xs font-mono font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">JUMLAH (PCS)</label>
+                                        <input type="number" id="qb-qty" value="1" min="1" class="w-full neon-input px-2.5 py-2.5 text-xs font-mono font-bold">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">JENIS BANNER</label>
+                                        <select id="qb-variant" class="w-full neon-input bg-paper px-3 py-2.5 text-xs font-medium">
+                                            <option value="Banner / Spanduk Outdoor Flexi">Banner / Spanduk Outdoor Flexi</option>
+                                            <option value="Banner Promosi Toko / Event">Banner Promosi Toko / Event</option>
+                                            <option value="Spanduk Umbul-Umbul Custom">Spanduk Umbul-Umbul Custom</option>
+                                            <option value="Backdrop Acara / Photobooth">Backdrop Acara / Photobooth</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">FINISHING</label>
+                                        <select id="qb-finishing" class="w-full neon-input bg-paper px-3 py-2.5 text-xs font-medium">
+                                            <option value="Mata Ayam (Ring Pojok)">Mata Ayam (Ring Pojok)</option>
+                                            <option value="Lipat Pas Gambar">Lipat Pas Gambar</option>
+                                            <option value="Lebih Bahan 5 cm">Lebih Bahan 5 cm</option>
+                                            <option value="Selongsong Bambu / Kayu">Selongsong Bambu / Kayu</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="bg-surface neon-box-static p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div class="font-mono text-xs space-y-1">
+                                        <p class="text-neutral-600">LUAS: <span id="qb-area-display" class="text-brandDark font-bold">2.00 m²</span> × Rp 15.000 × <span id="qb-qty-display" class="text-brandDark font-bold">1 pcs</span></p>
+                                        <p class="text-xl sm:text-2xl font-display font-bold text-brandGreen" id="qb-total-display">Rp 30.000</p>
+                                    </div>
+                                    <button type="button" id="qb-add-btn" class="w-full sm:w-auto bg-brandGreen text-white border-[1.5px] border-brandBright px-6 py-3.5 text-xs font-bold tracking-widest uppercase hover:bg-brandDark transition shrink-0 shadow-[0_0_14px_rgba(76,196,23,0.35)]">
+                                        + MASUKKAN KERANJANG
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Stiker Quick Form -->
+                            <div id="quick-panel-stiker" class="hidden p-4 sm:p-8 space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">PANJANG STIKER (CM)</label>
+                                        <input type="number" id="qs-length" value="5" min="1" step="any" class="w-full neon-input px-3 py-2.5 text-xs font-mono font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">LEBAR STIKER (CM)</label>
+                                        <input type="number" id="qs-width" value="5" min="1" step="any" class="w-full neon-input px-3 py-2.5 text-xs font-mono font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">JUMLAH PAKET (×10 PCS)</label>
+                                        <input type="number" id="qs-packs" value="1" min="1" step="1" class="w-full neon-input px-3 py-2.5 text-xs font-mono font-bold">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">BAHAN STIKER</label>
+                                        <select id="qs-material" class="w-full neon-input bg-paper px-3 py-2.5 text-xs font-medium">
+                                            <option value="Stiker Chromo Glossy">Stiker Chromo Glossy</option>
+                                            <option value="Stiker Vinyl Anti Air (Waterproof)">Stiker Vinyl Anti Air (Waterproof)</option>
+                                            <option value="Stiker Transparan Bening">Stiker Transparan Bening</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1.5">MODEL POTONG (CUTTING)</label>
+                                        <select id="qs-cut" class="w-full neon-input bg-paper px-3 py-2.5 text-xs font-medium">
+                                            <option value="Kiss Cut (Setengah Putus)">Kiss Cut (Setengah Putus)</option>
+                                            <option value="Die Cut (Potong Putus Satuan)">Die Cut (Potong Putus Satuan)</option>
+                                            <option value="Potong Kotak / Persegi">Potong Kotak / Persegi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="bg-surface neon-box-static p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div class="font-mono text-xs space-y-1">
+                                        <p class="text-neutral-600">TOTAL STIKER: <span id="qs-pcs-display" class="text-brandDark font-bold">10 PCS</span> (<span id="qs-pack-display" class="text-brandDark font-bold">1 Paket</span> × Rp 10.000)</p>
+                                        <p class="text-xl sm:text-2xl font-display font-bold text-brandGreen" id="qs-total-display">Rp 10.000</p>
+                                    </div>
+                                    <button type="button" id="qs-add-btn" class="w-full sm:w-auto bg-brandGreen text-white border-[1.5px] border-brandBright px-6 py-3.5 text-xs font-bold tracking-widest uppercase hover:bg-brandDark transition shrink-0 shadow-[0_0_14px_rgba(76,196,23,0.35)]">
+                                        + MASUKKAN KERANJANG
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================== -->
+            <!-- PAGE 4: CARA ORDER (DEDICATED HOW-TO-ORDER VIEW)         -->
+            <!-- ======================================================== -->
+            <section id="page-cara-order" class="page-view hidden">
+                <div class="max-w-[1440px] mx-auto px-3 sm:px-8 py-8 sm:py-14">
+                    <div class="mb-6 sm:mb-10">
+                        <p class="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-brandGreen font-bold mb-1">PANDUAN PELANGGAN</p>
+                        <h1 class="font-display text-2xl sm:text-4xl font-bold uppercase tracking-tight">ALUR PEMESANAN &amp; CETAK STRUK</h1>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                        <div class="p-5 sm:p-8 neon-box bg-paper space-y-2.5">
+                            <span class="font-mono text-[10px] font-bold px-2.5 py-1 bg-brandGreen text-white inline-block">LANGKAH PERTAMA</span>
+                            <h2 class="font-display text-base sm:text-lg font-bold uppercase">PILIH PRODUK &amp; UKURAN</h2>
+                            <p class="text-xs text-neutral-600 leading-relaxed">Buka halaman Katalog atau Kalkulator, lalu masukkan ukuran panjang &amp; lebar sesuai kebutuhan cetak banner atau stiker Anda.</p>
+                        </div>
+
+                        <div class="p-5 sm:p-8 neon-box bg-paper space-y-2.5">
+                            <span class="font-mono text-[10px] font-bold px-2.5 py-1 bg-brandGreen text-white inline-block">LANGKAH KEDUA</span>
+                            <h2 class="font-display text-base sm:text-lg font-bold uppercase">TAMBAH KE KERANJANG</h2>
+                            <p class="text-xs text-neutral-600 leading-relaxed">Sistem otomatis menghitung total biaya dalam Rupiah (IDR) sesuai luas meter banner (Rp 15.000/m²) atau kelipatan 10 pcs stiker (Rp 10.000/10 pcs).</p>
+                        </div>
+
+                        <div class="p-5 sm:p-8 neon-box bg-paper space-y-2.5">
+                            <span class="font-mono text-[10px] font-bold px-2.5 py-1 bg-brandGreen text-white inline-block">LANGKAH KETIGA</span>
+                            <h2 class="font-display text-base sm:text-lg font-bold uppercase">GENERATE STRUK NOTA</h2>
+                            <p class="text-xs text-neutral-600 leading-relaxed">Isi nama pemesan dan nomor WhatsApp di keranjang untuk menerbitkan struk invoice resmi yang bisa disimpan sebagai PDF atau dicetak.</p>
+                        </div>
+
+                        <div class="p-5 sm:p-8 neon-box bg-paper space-y-2.5">
+                            <span class="font-mono text-[10px] font-bold px-2.5 py-1 bg-brandGreen text-white inline-block">LANGKAH KEEMPAT</span>
+                            <h2 class="font-display text-base sm:text-lg font-bold uppercase">KIRIM STRUK &amp; FILE KE WA</h2>
+                            <p class="text-xs text-neutral-600 leading-relaxed">Klik tombol kirim ke WhatsApp (<span class="font-mono font-bold text-brandDark">0853-3921-6757</span>) dan lampirkan file desain siap cetak Anda.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 sm:mt-10 neon-box-static bg-surface p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div>
+                            <h3 class="font-display text-base sm:text-lg font-bold uppercase text-brandDark">SIAP MEMBUAT PESANAN CETAK ANDA?</h3>
+                            <p class="text-xs text-neutral-600 mt-1">Langsung pilih produk banner atau stiker custom untuk mendapatkan estimasi harga dan struk resmi.</p>
+                        </div>
+                        <button type="button" data-page-target="katalog" class="w-full sm:w-auto text-center bg-brandGreen text-white border-[1.5px] border-brandBright px-6 py-3.5 text-xs font-bold tracking-widest uppercase hover:bg-brandDark transition shrink-0">
+                            MULAI ORDER SEKARANG →
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- UPGRADED MOBILE-FRIENDLY FOOTER (HIGH CONTRAST & CLEAR)      -->
+    <!-- ============================================================ -->
+    <footer class="border-t-2 border-brandBright bg-brandDark text-white w-full overflow-x-hidden shadow-[0_-4px_20px_rgba(76,196,23,0.18)]">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-8 pt-10 pb-12">
+            
+            <!-- 4-Block Responsive Grid (1 Column on Mobile, 2 on Tablet, 4 on Desktop) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 pb-8 border-b border-brandBright/35">
+                
+                <!-- Block 1: Brand Identity & Tagline -->
+                <div class="lg:col-span-4 space-y-3.5">
+                    <div class="inline-flex items-center bg-paper px-3.5 py-2 neon-box-static">
+                        <div id="footer-logo-mount" class="h-11 sm:h-12 flex items-center"></div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
+                        Percetakan digital spesialis cetak banner/spanduk outdoor &amp; stiker label custom per ukuran. Hitung harga otomatis, cetak nota resmi, dan kirim file langsung via WhatsApp.
+                    </p>
+                </div>
+
+                <!-- Block 2: Navigasi Menu (4 Clean Pages) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <p class="text-[11px] font-mono font-bold uppercase tracking-widest text-brandBright">MENU HALAMAN</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-1 gap-2.5 text-xs font-bold uppercase tracking-wider">
+                        <button type="button" data-page-target="beranda" class="text-left text-white hover:text-brandBright transition py-1">BERANDA</button>
+                        <button type="button" data-page-target="katalog" class="text-left text-white hover:text-brandBright transition py-1">KATALOG PRODUK</button>
+                        <button type="button" data-page-target="kalkulator" class="text-left text-white hover:text-brandBright transition py-1">KALKULATOR</button>
+                        <button type="button" data-page-target="cara-order" class="text-left text-white hover:text-brandBright transition py-1">CARA ORDER</button>
+                    </div>
+                </div>
+
+                <!-- Block 3: Lokasi Workshop & Jam Operasional -->
+                <div class="lg:col-span-3 space-y-3">
+                    <p class="text-[11px] font-mono font-bold uppercase tracking-widest text-brandBright">WORKSHOP &amp; JAM BUKA</p>
+                    <div class="space-y-2.5 text-xs sm:text-sm text-white/95 leading-relaxed">
+                        <p class="break-words">
+                            Jl. Perum Grand Sutera No.34 Blok D1, Leuwimekar, Kec. Leuwiliang, Kabupaten Bogor, Jawa Barat 16640
+                        </p>
+                        <div class="pt-1 border-t border-brandBright/25 font-mono text-xs text-brandBright font-bold">
+                            Senin – Sabtu • 08:00 – 17:00 WIB
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 4: Kontak & Media Sosial Berikon Resmi -->
+                <div class="lg:col-span-3 space-y-3">
+                    <p class="text-[11px] font-mono font-bold uppercase tracking-widest text-brandBright">HUBUNGI &amp; SOSIAL MEDIA</p>
+                    <div class="space-y-2.5">
+                        <!-- WhatsApp Card -->
+                        <a href="https://wa.me/6285339216757" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-paper text-ink p-2.5 neon-box hover:bg-surface transition">
+                            <span class="w-8 h-8 bg-[#25D366] text-white flex items-center justify-center shrink-0">
+                                <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                            </span>
+                            <div class="min-w-0">
+                                <p class="text-[10px] font-mono text-neutral-500 uppercase">WHATSAPP ADMIN</p>
+                                <p class="text-xs font-mono font-bold text-brandDark break-all">0853-3921-6757</p>
+                            </div>
+                        </a>
+
+                        <!-- Instagram Card -->
+                        <a href="https://instagram.com/sumberrizkiprinting" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-paper text-ink p-2.5 neon-box hover:bg-surface transition">
+                            <span class="w-8 h-8 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white flex items-center justify-center shrink-0">
+                                <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </span>
+                            <div class="min-w-0">
+                                <p class="text-[10px] font-mono text-neutral-500 uppercase">INSTAGRAM</p>
+                                <p class="text-xs font-mono font-bold text-ink break-all">@sumberrizkiprinting</p>
+                            </div>
+                        </a>
+
+                        <!-- TikTok Card -->
+                        <a href="https://tiktok.com/@sumberrizki026" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-paper text-ink p-2.5 neon-box hover:bg-surface transition">
+                            <span class="w-8 h-8 bg-[#111111] text-white flex items-center justify-center shrink-0">
+                                <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                            </span>
+                            <div class="min-w-0">
+                                <p class="text-[10px] font-mono text-neutral-500 uppercase">TIKTOK</p>
+                                <p class="text-xs font-mono font-bold text-ink break-all">@sumberrizki026</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centered Mobile / Spread Desktop Copyright Row -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-[11px] font-mono text-white/85">
+                <p>© 2026 SUMBER RIZKI -PRINTING-. ALL RIGHTS RESERVED.</p>
+                <p class="text-brandBright font-bold">BANNER RP 15.000/M² • STIKER RP 10.000/10PCS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- PRODUCT CUSTOM DIMENSION CONFIGURATOR MODAL                  -->
+    <!-- ============================================================ -->
+    <div id="config-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/55 p-3 sm:p-4">
+        <div class="bg-paper neon-box-static w-full max-w-3xl grid grid-cols-1 md:grid-cols-12 max-h-[90vh] overflow-y-auto shadow-2xl">
+            
+            <!-- Left Visual Blueprint Preview -->
+            <div class="md:col-span-5 bg-surface border-b md:border-b-0 md:border-r border-brandBright/40 p-4 sm:p-6 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-[10px] font-mono text-brandDark font-bold uppercase">
+                    <span id="modal-code">SR-BNR-01</span>
+                    <span>CUSTOM SPEC</span>
+                </div>
+
+                <div id="modal-blueprint" class="my-3 sm:my-6 flex items-center justify-center">
+                    <!-- Dynamic Dimension Blueprint SVG -->
+                </div>
+
+                <div class="border-t border-brandBright/40 pt-2.5 text-[11px] font-mono text-neutral-600 space-y-1">
+                    <div class="flex justify-between">
+                        <span>TARIF DASAR:</span>
+                        <span id="modal-base-rate" class="font-bold text-brandGreen">Rp 15.000 / m²</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>ESTIMASI PROSES:</span>
+                        <span class="font-bold text-brandDark">1 HARI KERJA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Custom Form -->
+            <div class="md:col-span-7 p-4 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-brandBright/40">
+                        <div>
+                            <p id="modal-category-label" class="text-[10px] font-mono font-bold uppercase text-brandGreen">BANNER CUSTOM</p>
+                            <h3 id="modal-product-title" class="font-display text-lg sm:text-2xl font-bold uppercase mt-0.5 leading-tight">BANNER OUTDOOR FLEXI</h3>
+                        </div>
+                        <button id="close-config-modal" class="p-2 neon-box bg-paper text-brandDark hover:bg-brandGreen hover:text-white transition shrink-0">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <p id="modal-product-desc" class="text-xs text-neutral-600 leading-relaxed mt-3"></p>
+
+                    <!-- BANNER SPECIFIC INPUTS -->
+                    <div id="modal-banner-fields" class="mt-4 space-y-3.5">
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <label class="block text-[9px] sm:text-[10px] font-mono font-bold uppercase text-brandDark mb-1">SATUAN</label>
+                                <select id="m-banner-unit" class="w-full neon-input px-2 py-2 text-xs font-mono font-bold bg-paper">
+                                    <option value="cm">CM</option>
+                                    <option value="m">METER</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[9px] sm:text-[10px] font-mono font-bold uppercase text-brandDark mb-1">PANJANG (<span class="m-unit-lbl">CM</span>)</label>
+                                <input type="number" id="m-banner-length" value="200" min="1" step="any" class="w-full neon-input px-2 py-2 text-xs font-mono font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-[9px] sm:text-[10px] font-mono font-bold uppercase text-brandDark mb-1">LEBAR (<span class="m-unit-lbl">CM</span>)</label>
+                                <input type="number" id="m-banner-width" value="100" min="1" step="any" class="w-full neon-input px-2 py-2 text-xs font-mono font-bold">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">FINISHING</label>
+                                <select id="m-banner-finishing" class="w-full neon-input px-2.5 py-2 text-xs bg-paper">
+                                    <option value="Mata Ayam (Ring Pojok)">Mata Ayam (Ring Pojok)</option>
+                                    <option value="Lipat Pas Gambar">Lipat Pas Gambar</option>
+                                    <option value="Lebih Bahan 5 cm">Lebih Bahan 5 cm</option>
+                                    <option value="Selongsong Bambu">Selongsong Bambu</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">JUMLAH (PCS)</label>
+                                <input type="number" id="m-banner-qty" value="1" min="1" class="w-full neon-input px-2.5 py-2 text-xs font-mono font-bold">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STIKER SPECIFIC INPUTS -->
+                    <div id="modal-stiker-fields" class="hidden mt-4 space-y-3.5">
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <label class="block text-[9px] sm:text-[10px] font-mono font-bold uppercase text-brandDark mb-1">PANJANG (CM)</label>
+                                <input type="number" id="m-stiker-length" value="5" min="1" step="any" class="w-full neon-input px-2 py-2 text-xs font-mono font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-[9px] sm:text-[10px] font-mono font-bold uppercase text-brandDark mb-1">LEBAR (CM)</label>
+                                <input type="number" id="m-stiker-width" value="5" min="1" step="any" class="w-full neon-input px-2 py-2 text-xs font-mono font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-[9px] sm:text-[10px] font-mono font-bold uppercase text-brandDark mb-1">PAKET (×10)</label>
+                                <input type="number" id="m-stiker-packs" value="1" min="1" step="1" class="w-full neon-input px-2 py-2 text-xs font-mono font-bold">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">BAHAN STIKER</label>
+                                <select id="m-stiker-material" class="w-full neon-input px-2.5 py-2 text-xs bg-paper">
+                                    <option value="Chromo Glossy">Chromo Glossy</option>
+                                    <option value="Vinyl Anti Air">Vinyl Anti Air</option>
+                                    <option value="Transparan Bening">Transparan Bening</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">POTONG / CUTTING</label>
+                                <select id="m-stiker-cut" class="w-full neon-input px-2.5 py-2 text-xs bg-paper">
+                                    <option value="Kiss Cut">Kiss Cut</option>
+                                    <option value="Die Cut">Die Cut</option>
+                                    <option value="Potong Kotak">Potong Kotak</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optional Note per Item -->
+                    <div class="mt-3.5">
+                        <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">CATATAN / NAMA FILE DESAIN (OPSIONAL)</label>
+                        <input type="text" id="m-item-note" placeholder="Contoh: File_Spanduk_Toko.pdf / Bentuk Bulat" class="w-full neon-input px-3 py-2 text-xs">
+                    </div>
+                </div>
+
+                <!-- Live Calculation Box & Submit -->
+                <div class="mt-5 pt-3.5 border-t border-brandBright/40 space-y-3.5">
+                    <div class="bg-surface neon-box-static p-3 flex items-center justify-between gap-2">
+                        <div>
+                            <p id="modal-formula-text" class="text-[10px] sm:text-[11px] font-mono text-neutral-600">2.00 m² × Rp 15.000 × 1</p>
+                            <p class="text-[10px] font-mono uppercase text-brandDark font-bold">SUBTOTAL ITEM</p>
+                        </div>
+                        <p id="modal-calculated-price" class="font-display text-xl sm:text-2xl font-bold text-brandGreen shrink-0">Rp 30.000</p>
+                    </div>
+
+                    <button id="modal-add-cart-btn" class="w-full bg-brandGreen text-white border-[1.5px] border-brandBright py-3.5 text-xs font-bold tracking-[0.14em] uppercase hover:bg-brandDark transition flex items-center justify-center gap-2 shadow-[0_0_16px_rgba(76,196,23,0.35)]">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span>TAMBAH KE KERANJANG PESANAN</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE-OVER SHOPPING CART & ORDER FORM DRAWER                 -->
+    <!-- ============================================================ -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+        <div id="cart-backdrop" class="fixed inset-0 bg-ink/50"></div>
+
+        <div class="fixed inset-y-0 right-0 w-[92vw] sm:w-full max-w-md bg-paper border-l-2 border-brandBright flex flex-col justify-between z-10 shadow-[0_0_28px_rgba(76,196,23,0.3)]">
+            
+            <!-- Header -->
+            <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-brandBright/40 flex items-center justify-between bg-surface">
+                <div class="flex items-center gap-2">
+                    <h3 class="font-display text-base sm:text-lg font-bold uppercase text-brandDark">KERANJANG CETAK</h3>
+                    <span id="drawer-badge" class="font-mono text-xs font-bold bg-brandGreen text-white px-2 py-0.5">0</span>
+                </div>
+                <button id="cart-close-btn" class="p-2 neon-box bg-paper text-brandDark hover:bg-brandGreen hover:text-white transition">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
+                <!-- Cart Items List -->
+                <div id="cart-items-container" class="space-y-3">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Customer Checkout Form (Shown when cart has items) -->
+                <div id="cart-customer-form-box" class="hidden pt-4 border-t border-brandBright/40 space-y-3.5">
+                    <div>
+                        <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-brandGreen">DATA PEMESAN UNTUK STRUK</p>
+                        <h4 class="font-display text-sm sm:text-base font-bold uppercase mt-0.5">INFORMASI PELANGGAN</h4>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">NAMA PEMESAN / TOKO *</label>
+                            <input type="text" id="cust-name" required placeholder="Contoh: Budi Santoso / Toko Berkah" class="w-full neon-input px-3 py-2 text-xs">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">NOMOR WHATSAPP PEMESAN *</label>
+                            <input type="tel" id="cust-phone" required placeholder="Contoh: 0812-3456-7890" class="w-full neon-input px-3 py-2 text-xs font-mono">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">PENGAMBILAN / PENGIRIMAN</label>
+                            <select id="cust-delivery" class="w-full neon-input bg-paper px-3 py-2 text-xs">
+                                <option value="Ambil Langsung di Toko (Leuwiliang)">Ambil Langsung di Toko (Leuwiliang)</option>
+                                <option value="Kirim Kurir / Ojek Online (Konfirmasi Ongkir di WA)">Kirim Kurir / Ojek Online (Konfirmasi Ongkir di WA)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-mono font-bold uppercase text-brandDark mb-1">CATATAN TAMBAHAN (OPSIONAL)</label>
+                            <input type="text" id="cust-note" placeholder="Contoh: Ditunggu sore ini / File dikirim via WA" class="w-full neon-input px-3 py-2 text-xs">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="p-4 sm:p-6 border-t border-brandBright/40 bg-surface space-y-3.5">
+                <div class="flex items-center justify-between">
+                    <span class="text-[11px] sm:text-xs font-mono uppercase text-neutral-600">TOTAL ESTIMASI (IDR)</span>
+                    <span id="cart-grand-total" class="font-display text-xl sm:text-2xl font-bold text-brandGreen">Rp 0</span>
+                </div>
+
+                <button id="generate-receipt-btn" disabled class="w-full bg-brandGreen text-white border-[1.5px] border-brandBright py-3.5 sm:py-4 text-xs font-bold tracking-[0.12em] uppercase hover:bg-brandDark transition disabled:opacity-35 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-[0_0_16px_rgba(76,196,23,0.35)]">
+                    <i data-lucide="receipt" class="w-4 h-4"></i>
+                    <span>BUAT PESANAN &amp; CETAK STRUK</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- OFFICIAL PRINTABLE RECEIPT / STRUK MODAL                     -->
+    <!-- ============================================================ -->
+    <div id="receipt-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/70 p-3 sm:p-4 overflow-y-auto">
+        <div class="w-full max-w-md my-auto space-y-2.5 sm:space-y-3">
+            
+            <!-- Top Close Bar (Hidden on Print) -->
+            <div class="no-print flex items-center justify-between bg-brandDark text-white px-3.5 py-2 text-[11px] sm:text-xs font-mono border border-brandBright">
+                <span>STRUK PESANAN BERHASIL DIBUAT</span>
+                <button id="close-receipt-modal" class="hover:underline uppercase font-bold">[ TUTUP × ]</button>
+            </div>
+
+            <!-- Printable Thermal / Studio Receipt Sheet -->
+            <div id="receipt-printable-area" class="bg-paper neon-box-static p-4 sm:p-8 font-mono text-xs text-ink shadow-2xl">
+                
+                <!-- Receipt Header -->
+                <div class="text-center border-b border-dashed border-brandGreen pb-4 space-y-1">
+                    <div id="receipt-logo-mount" class="h-10 sm:h-12 flex items-center justify-center mx-auto mb-1"></div>
+                    <p class="font-bold text-xs sm:text-sm tracking-wider uppercase text-brandDark">SUMBER RIZKI -PRINTING-</p>
+                    <p class="text-[10px] text-neutral-600 leading-relaxed">
+                        Jl. Perum Grand Sutera No.34 Blok D1, Leuwimekar, Kec. Leuwiliang, Kab. Bogor, Jawa Barat 16640
+                    </p>
+                    <p class="text-[10px] font-bold text-brandDark">WA: 0853-3921-6757 | IG: @sumberrizkiprinting</p>
+                </div>
+
+                <!-- Invoice Metadata -->
+                <div class="py-3.5 border-b border-dashed border-brandGreen space-y-1 text-[10px] sm:text-[11px]">
+                    <div class="flex justify-between gap-2">
+                        <span class="text-neutral-500 shrink-0">NO. NOTA:</span>
+                        <span id="rec-inv-number" class="font-bold text-brandDark text-right">INV-SR-20261115-001</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-neutral-500 shrink-0">TANGGAL:</span>
+                        <span id="rec-date" class="text-right">15/11/2026 21:07 WIB</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-neutral-500 shrink-0">PEMESAN:</span>
+                        <span id="rec-cust-name" class="font-bold uppercase text-right">-</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-neutral-500 shrink-0">NO. WA:</span>
+                        <span id="rec-cust-phone" class="text-right">-</span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-neutral-500 shrink-0">METODE:</span>
+                        <span id="rec-delivery" class="text-right max-w-[190px]">-</span>
+                    </div>
+                </div>
+
+                <!-- Itemized List -->
+                <div class="py-3.5 border-b border-dashed border-brandGreen space-y-2.5">
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-brandGreen">RINCIAN PESANAN CETAK:</p>
+                    <div id="rec-items-list" class="space-y-2.5">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Note if any -->
+                <div id="rec-note-wrapper" class="hidden py-2.5 border-b border-dashed border-brandGreen text-[10px] sm:text-[11px]">
+                    <span class="text-neutral-500">CATATAN:</span>
+                    <p id="rec-note-text" class="font-medium mt-0.5"></p>
+                </div>
+
+                <!-- Grand Total -->
+                <div class="py-3.5 border-b border-brandGreen">
+                    <div class="flex items-center justify-between text-xs sm:text-sm font-bold">
+                        <span>TOTAL TAGIHAN</span>
+                        <span id="rec-grand-total" class="text-sm sm:text-base text-brandGreen">Rp 0</span>
+                    </div>
+                    <p class="text-[9px] sm:text-[10px] text-neutral-500 mt-1">
+                        *Tarif Banner: Rp 15.000/m² | Tarif Stiker: Rp 10.000/10 pcs
+                    </p>
+                </div>
+
+                <!-- Receipt Footer / Green Barcode Visual -->
+                <div class="pt-4 text-center space-y-1.5">
+                    <div class="h-7 w-40 sm:w-48 mx-auto flex items-stretch justify-between gap-[2px] opacity-90" aria-hidden="true">
+                        <span class="w-1 bg-brandDark"></span><span class="w-0.5 bg-brandGreen"></span><span class="w-1.5 bg-brandDark"></span>
+                        <span class="w-0.5 bg-brandGreen"></span><span class="w-1 bg-brandDark"></span><span class="w-2 bg-brandDark"></span>
+                        <span class="w-0.5 bg-brandGreen"></span><span class="w-1 bg-brandDark"></span><span class="w-0.5 bg-brandGreen"></span>
+                        <span class="w-1.5 bg-brandDark"></span><span class="w-1 bg-brandDark"></span><span class="w-0.5 bg-brandGreen"></span>
+                        <span class="w-2 bg-brandDark"></span><span class="w-0.5 bg-brandGreen"></span><span class="w-1 bg-brandDark"></span>
+                        <span class="w-1.5 bg-brandDark"></span><span class="w-0.5 bg-brandGreen"></span><span class="w-1 bg-brandDark"></span>
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brandDark">TERIMA KASIH TELAH ORDER</p>
+                    <p class="text-[9px] sm:text-[10px] text-neutral-500">Silakan kirim struk ini beserta file desain ke WhatsApp admin untuk proses cetak.</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons Outside Print Area -->
+            <div class="no-print grid grid-cols-1 gap-2">
+                <a id="send-wa-receipt-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-brandGreen text-white py-3.5 px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase hover:bg-brandDark transition flex items-center justify-center gap-2 border-[1.5px] border-brandBright shadow-[0_0_16px_rgba(76,196,23,0.4)] text-center">
+                    <i data-lucide="send" class="w-4 h-4 shrink-0"></i>
+                    <span>KIRIM STRUK &amp; FILE KE WHATSAPP</span>
+                </a>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <button type="button" id="print-pdf-btn" class="bg-paper text-brandDark neon-box py-3 px-2.5 text-[10px] sm:text-xs font-bold tracking-wider uppercase hover:bg-surface transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="printer" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brandGreen shrink-0"></i>
+                        <span>SIMPAN PDF</span>
+                    </button>
+
+                    <button type="button" id="copy-receipt-btn" class="bg-paper text-brandDark neon-box py-3 px-2.5 text-[10px] sm:text-xs font-bold tracking-wider uppercase hover:bg-surface transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="copy" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brandGreen shrink-0"></i>
+                        <span>SALIN STRUK</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Minimalist Toast -->
+    <div id="toast" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 z-50 transform translate-y-20 opacity-0 transition-all duration-200 pointer-events-none">
+        <div class="bg-brandDark text-white border-[1.5px] border-brandBright px-4 py-3 text-[11px] sm:text-xs font-mono uppercase flex items-center gap-2.5 shadow-[0_0_16px_rgba(76,196,23,0.45)]">
+            <span class="w-2 h-2 bg-brandBright shrink-0"></span>
+            <span id="toast-msg" class="truncate">BERHASIL DITAMBAHKAN</span>
+        </div>
+    </div>
+
+    <!-- Hidden Reference Image for Pixel-Level Black Background Removal -->
+    <img id="raw-uploaded-logo" src="WhatsApp Image 2026-11-15 at 21.02.37.jpeg" alt="Raw Logo" class="hidden" crossorigin="anonymous">
+
+    <!-- ============================================================ -->
+    <!-- APPLICATION LOGIC                                            -->
+    <!-- ============================================================ -->
+    <script>
+        // ============================================================
+        // 1. TRANSPARENT LOGO GENERATOR
+        // ============================================================
+        function buildCrispTransparentLogoSVG() {
+            return `
+            <svg viewBox="0 0 360 115" class="h-full w-auto max-w-full select-none" role="img" aria-label="SUMBER RIZKI PRINTING">
+                <defs>
+                    <linearGradient id="srGreenMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#65D329"/>
+                        <stop offset="50%" stop-color="#3CA315"/>
+                        <stop offset="100%" stop-color="#26730B"/>
+                    </linearGradient>
+                    <linearGradient id="srGreenDark" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#26730B"/>
+                        <stop offset="100%" stop-color="#144704"/>
+                    </linearGradient>
+                </defs>
+                <!-- 3D Interlocking SR Monogram -->
+                <g transform="translate(112, 4)">
+                    <path d="M58 10 H24 C10 10 4 17 4 27 C4 37 11 43 25 45 L46 48 C53 49 56 52 56 57 C56 62 51 65 42 65 H8 L4 74 H44 C60 74 68 66 68 55 C68 44 60 38 45 36 L24 33 C17 32 15 29 15 25 C15 21 19 19 27 19 H62 Z" fill="url(#srGreenDark)" transform="translate(-3, 3)"/>
+                    <path d="M58 10 H24 C10 10 4 17 4 27 C4 37 11 43 25 45 L46 48 C53 49 56 52 56 57 C56 62 51 65 42 65 H8 L4 74 H44 C60 74 68 66 68 55 C68 44 60 38 45 36 L24 33 C17 32 15 29 15 25 C15 21 19 19 27 19 H62 Z" fill="url(#srGreenMain)"/>
+                    <path d="M72 10 H112 C127 10 135 17 135 29 C135 39 128 46 116 48 L136 74 H121 L103 49 H85 V74 H72 Z M85 20 V39 H110 C118 39 122 35 122 29.5 C122 24 118 20 110 20 Z" fill="url(#srGreenDark)" transform="translate(-3, 3)"/>
+                    <path d="M72 10 H112 C127 10 135 17 135 29 C135 39 128 46 116 48 L136 74 H121 L103 49 H85 V74 H72 Z M85 20 V39 H110 C118 39 122 35 122 29.5 C122 24 118 20 110 20 Z" fill="url(#srGreenMain)"/>
+                </g>
+                <text x="180" y="96" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700" fill="url(#srGreenMain)" text-anchor="middle" letter-spacing="2.5">SUMBER RIZKI</text>
+                <polygon points="62,107 114,105.5 114,108.5" fill="#3CA315"/>
+                <text x="180" y="111" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#3CA315" text-anchor="middle" letter-spacing="5">PRINTING</text>
+                <polygon points="298,107 246,105.5 246,108.5" fill="#3CA315"/>
+            </svg>`;
+        }
+
+        function initTransparentLogos() {
+            const mounts = ['header-logo-mount', 'footer-logo-mount', 'receipt-logo-mount'];
+            const rawImg = document.getElementById('raw-uploaded-logo');
+
+            const applyFallbackSVGs = () => {
+                mounts.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = buildCrispTransparentLogoSVG();
+                });
+            };
+
+            applyFallbackSVGs();
+
+            if (rawImg) {
+                const processImageTransparency = () => {
+                    try {
+                        if (!rawImg.naturalWidth || !rawImg.naturalHeight) return;
+                        const canvas = document.createElement('canvas');
+                        canvas.width = rawImg.naturalWidth;
+                        canvas.height = rawImg.naturalHeight;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(rawImg, 0, 0);
+
+                        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        const data = imgData.data;
+
+                        for (let i = 0; i < data.length; i += 4) {
+                            const r = data[i];
+                            const g = data[i + 1];
+                            const b = data[i + 2];
+                            const maxChannel = Math.max(r, g, b);
+
+                            if (maxChannel < 24) {
+                                data[i + 3] = 0;
+                            } else if (maxChannel < 58) {
+                                const alphaFactor = (maxChannel - 24) / (58 - 24);
+                                data[i + 3] = Math.round(alphaFactor * 255);
+                            }
+                        }
+
+                        ctx.putImageData(imgData, 0, 0);
+                        const transparentDataUrl = canvas.toDataURL('image/png');
+
+                        mounts.forEach(id => {
+                            const el = document.getElementById(id);
+                            if (el) {
+                                el.innerHTML = `<img src="${transparentDataUrl}" alt="SUMBER RIZKI -PRINTING-" class="h-full w-auto max-w-full object-contain">`;
+                            }
+                        });
+                    } catch (err) {
+                        applyFallbackSVGs();
+                    }
+                };
+
+                if (rawImg.complete && rawImg.naturalWidth > 0) {
+                    processImageTransparency();
+                } else {
+                    rawImg.addEventListener('load', processImageTransparency);
+                    rawImg.addEventListener('error', applyFallbackSVGs);
+                }
+            }
+        }
+
+        // ============================================================
+        // 2. MULTI-PAGE VIEW SWITCHING LOGIC
+        // ============================================================
+        let currentPage = 'beranda';
+
+        function navigateToPage(pageName) {
+            const targetSection = document.getElementById(`page-${pageName}`);
+            if (!targetSection) return;
+
+            currentPage = pageName;
+
+            // Hide all pages, show target page
+            document.querySelectorAll('.page-view').forEach(section => {
+                section.classList.add('hidden');
+            });
+            targetSection.classList.remove('hidden');
+
+            // Update Desktop Top Navigation Active State
+            document.querySelectorAll('.top-nav-link').forEach(btn => {
+                if (btn.dataset.pageTarget === pageName) {
+                    btn.className = 'top-nav-link py-1.5 border-b-2 border-brandGreen text-brandGreen transition';
+                } else {
+                    btn.className = 'top-nav-link py-1.5 border-b-2 border-transparent text-ink hover:text-brandGreen transition';
+                }
+            });
+
+            // Update Mobile Horizontal Sub-Navigation Active State
+            document.querySelectorAll('.mobile-sub-link').forEach(btn => {
+                if (btn.dataset.pageTarget === pageName) {
+                    btn.className = 'mobile-sub-link px-3 py-1.5 text-[10px] font-bold tracking-wider uppercase bg-brandGreen text-white border border-brandBright';
+                } else {
+                    btn.className = 'mobile-sub-link px-3 py-1.5 text-[10px] font-bold tracking-wider uppercase bg-paper text-ink border border-brandBright/50';
+                }
+            });
+
+            // Update Slide-Over Drawer Navigation Active State
+            document.querySelectorAll('.drawer-nav-link').forEach(btn => {
+                const icon = btn.querySelector('svg, i');
+                if (btn.dataset.pageTarget === pageName) {
+                    btn.className = 'drawer-nav-link w-full text-left px-4 py-3 text-xs font-bold tracking-[0.14em] uppercase neon-box bg-brandGreen text-white flex items-center justify-between';
+                    if (icon) icon.classList.remove('text-brandGreen');
+                } else {
+                    btn.className = 'drawer-nav-link w-full text-left px-4 py-3 text-xs font-bold tracking-[0.14em] uppercase neon-box bg-paper text-ink hover:bg-surface flex items-center justify-between';
+                    if (icon) icon.classList.add('text-brandGreen');
+                }
+            });
+
+            // Close navigation drawer if open & scroll smoothly to top of new page
+            document.getElementById('nav-drawer').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // 3. CATALOG DATA (BANNER RP 15.000/M² & STIKER RP 10.000/10PCS)
+        // ============================================================
+        const catalogProducts = [
+            {
+                id: 'SR-BNR-01',
+                type: 'BANNER',
+                title: 'BANNER / SPANDUK OUTDOOR FLEXI',
+                rateLabel: 'Rp 15.000 / m²',
+                unitPrice: 15000,
+                defaultDim: '200 × 100 cm',
+                specTag: 'FLEXI 280GR • OUTDOOR',
+                description: 'Cetak spanduk & banner bahan Flexi tahan cuaca hujan dan panas matahari. Ukuran bebas sesuai kebutuhan toko, warung, atau promosi usaha.'
+            },
+            {
+                id: 'SR-STK-01',
+                type: 'STIKER',
+                title: 'STIKER LABEL KEMASAN CUSTOM',
+                rateLabel: 'Rp 10.000 / 10 pcs',
+                unitPrice: 10000,
+                defaultDim: '5 × 5 cm (10 pcs)',
+                specTag: 'CHROMO / VINYL • CUSTOM SIZE',
+                description: 'Stiker label produk makanan, minuman, botol, atau pouch. Harga Rp 10.000 per paket isi 10 pcs dengan ukuran bebas.'
+            },
+            {
+                id: 'SR-BNR-02',
+                type: 'BANNER',
+                title: 'BANNER PROMOSI TOKO & WARUNG',
+                rateLabel: 'Rp 15.000 / m²',
+                unitPrice: 15000,
+                defaultDim: '300 × 100 cm',
+                specTag: 'HIGH-RES 1440 DPI',
+                description: 'Spanduk daftar menu, harga, atau papan nama toko dengan warna tajam dan kontras tinggi. Termasuk pilihan finishing mata ayam.'
+            },
+            {
+                id: 'SR-STK-02',
+                type: 'STIKER',
+                title: 'STIKER DIE-CUT / KISS-CUT CUSTOM',
+                rateLabel: 'Rp 10.000 / 10 pcs',
+                unitPrice: 10000,
+                defaultDim: '6 × 6 cm (10 pcs)',
+                specTag: 'PRECISION CONTOUR CUT',
+                description: 'Stiker potong mengikuti pola bentuk logo (Die Cut / Kiss Cut). Cocok untuk merchandise komunitas, helm, laptop, dan kemasan.'
+            },
+            {
+                id: 'SR-BNR-03',
+                type: 'BANNER',
+                title: 'BACKDROP ACARA & EVENT CUSTOM',
+                rateLabel: 'Rp 15.000 / m²',
+                unitPrice: 15000,
+                defaultDim: '300 × 200 cm',
+                specTag: 'LARGE FORMAT PRINT',
+                description: 'Backdrop panggung, acara seminar, ulang tahun, atau photobooth ukuran besar dengan sambungan rapi dan hasil cetak presisi.'
+            },
+            {
+                id: 'SR-STK-03',
+                type: 'STIKER',
+                title: 'STIKER VINYL ANTI AIR (WATERPROOF)',
+                rateLabel: 'Rp 10.000 / 10 pcs',
+                unitPrice: 10000,
+                defaultDim: '7 × 4 cm (10 pcs)',
+                specTag: 'TAHAN AIR & KULKAS',
+                description: 'Bahan stiker plastik vinyl tidak mudah sobek dan tahan air/minyak. Ideal untuk kemasan frozen food dan minuman dingin.'
+            },
+            {
+                id: 'SR-BNR-04',
+                type: 'BANNER',
+                title: 'SPANDUK UMBUL-UMBUL / VERTICAL',
+                rateLabel: 'Rp 15.000 / m²',
+                unitPrice: 15000,
+                defaultDim: '80 × 300 cm',
+                specTag: 'SELONGSONG / MATA AYAM',
+                description: 'Banner vertikal untuk pemasangan tiang jalan atau area perumahan dengan opsi finishing selongsong bambu maupun ring pojok.'
+            },
+            {
+                id: 'SR-STK-04',
+                type: 'STIKER',
+                title: 'STIKER TRANSPARAN BENING CUSTOM',
+                rateLabel: 'Rp 10.000 / 10 pcs',
+                unitPrice: 10000,
+                defaultDim: '5 × 5 cm (10 pcs)',
+                specTag: 'CLEAR TRANSPARENT',
+                description: 'Stiker berlatar bening transparan untuk cup minuman kekinian, toples kaca, atau kemasan kosmetik minimalis.'
+            }
+        ];
+
+        // ============================================================
+        // 4. STATE & HELPERS
+        // ============================================================
+        const ADMIN_WA_NUMBER = '6285339216757';
+        let activeFilter = 'ALL';
+        let searchKeyword = '';
+        let activeModalProduct = null;
+        let cart = [];
+        let lastGeneratedReceiptText = '';
+
+        function formatIDR(num) {
+            return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            clearTimeout(window.__toastTimer);
+            window.__toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Technical Studio Blueprint SVG in Logo Green Palette
+        function generateBlueprintSVG(product, customDimText = null) {
+            const dimLabel = customDimText || product.defaultDim;
+            if (product.type === 'BANNER') {
+                return `
+                <svg viewBox="0 0 260 200" class="w-full max-w-[200px] sm:max-w-[220px] h-auto">
+                    <rect x="24" y="34" width="212" height="122" fill="#FFFFFF" stroke="#3CA315" stroke-width="1.5"/>
+                    <rect x="32" y="42" width="196" height="106" fill="#F7FAF6" stroke="#4CC417" stroke-width="1" stroke-dasharray="3 3"/>
+                    <circle cx="30" cy="40" r="3" fill="#FFFFFF" stroke="#26730B" stroke-width="1.5"/>
+                    <circle cx="230" cy="40" r="3" fill="#FFFFFF" stroke="#26730B" stroke-width="1.5"/>
+                    <circle cx="30" cy="150" r="3" fill="#FFFFFF" stroke="#26730B" stroke-width="1.5"/>
+                    <circle cx="230" cy="150" r="3" fill="#FFFFFF" stroke="#26730B" stroke-width="1.5"/>
+                    <line x1="24" y1="20" x2="236" y2="20" stroke="#26730B" stroke-width="1"/>
+                    <line x1="24" y1="16" x2="24" y2="24" stroke="#26730B" stroke-width="1"/>
+                    <line x1="236" y1="16" x2="236" y2="24" stroke="#26730B" stroke-width="1"/>
+                    <text x="130" y="15" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#26730B" text-anchor="middle">PANJANG (CUSTOM)</text>
+
+                    <rect x="64" y="76" width="132" height="38" fill="#26730B"/>
+                    <text x="130" y="93" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">BANNER CUSTOM</text>
+                    <text x="130" y="106" font-family="JetBrains Mono, monospace" font-size="8" fill="#65D329" text-anchor="middle">${dimLabel}</text>
+
+                    <text x="130" y="176" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#3CA315" text-anchor="middle">RP 15.000 / M²</text>
+                </svg>`;
+            }
+
+            return `
+            <svg viewBox="0 0 260 200" class="w-full max-w-[200px] sm:max-w-[220px] h-auto">
+                <rect x="35" y="24" width="190" height="142" fill="#FFFFFF" stroke="#3CA315" stroke-width="1.5"/>
+                <rect x="52" y="42" width="68" height="46" fill="#F7FAF6" stroke="#4CC417" stroke-width="1.2" stroke-dasharray="3 2"/>
+                <circle cx="168" cy="65" r="24" fill="#F7FAF6" stroke="#4CC417" stroke-width="1.2" stroke-dasharray="3 2"/>
+                <rect x="52" y="102" width="156" height="46" fill="#26730B"/>
+                <text x="130" y="123" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">STIKER CUSTOM</text>
+                <text x="130" y="136" font-family="JetBrains Mono, monospace" font-size="8" fill="#65D329" text-anchor="middle">${dimLabel}</text>
+                <text x="86" y="68" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="#26730B" text-anchor="middle">CUTTING</text>
+                <text x="168" y="68" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="#26730B" text-anchor="middle">10 PCS</text>
+                <text x="130" y="183" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#3CA315" text-anchor="middle">RP 10.000 / 10 PCS</text>
+            </svg>`;
+        }
+
+        // ============================================================
+        // 5. RENDER CATALOG GRID (WITH NEON GREEN BORDERS)
+        // ============================================================
+        function renderCatalog() {
+            const grid = document.getElementById('product-grid');
+            const emptyBox = document.getElementById('empty-catalog');
+
+            const filtered = catalogProducts.filter(item => {
+                const matchType = activeFilter === 'ALL' || item.type === activeFilter;
+                const q = searchKeyword.trim().toLowerCase();
+                const matchSearch = !q ||
+                    item.title.toLowerCase().includes(q) ||
+                    item.specTag.toLowerCase().includes(q) ||
+                    item.type.toLowerCase().includes(q);
+                return matchType && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyBox.classList.remove('hidden');
+                return;
+            }
+
+            emptyBox.classList.add('hidden');
+            grid.innerHTML = filtered.map(item => `
+                <article onclick="openConfigModal('${item.id}')" class="group neon-box bg-paper hover:bg-surface cursor-pointer flex flex-col justify-between p-4 sm:p-6">
+                    <div>
+                        <div class="flex items-center justify-between text-[10px] font-mono text-neutral-500 mb-3">
+                            <span>${item.id}</span>
+                            <span class="border border-brandBright bg-surface px-2 py-0.5 text-brandDark font-bold">${item.type}</span>
+                        </div>
+
+                        <div class="aspect-[4/3] bg-surface group-hover:bg-paper border border-brandBright/50 flex items-center justify-center p-3 transition">
+                            ${generateBlueprintSVG(item)}
+                        </div>
+
+                        <div class="mt-4 space-y-1.5">
+                            <p class="text-[10px] font-mono text-brandGreen font-bold uppercase">${item.specTag}</p>
+                            <h3 class="font-display text-sm sm:text-base font-bold uppercase leading-snug text-ink group-hover:text-brandDark">
+                                ${item.title}
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 pt-3 border-t border-brandBright/40 flex items-center justify-between gap-2">
+                        <span class="font-mono text-xs sm:text-sm font-bold text-brandDark">${item.rateLabel}</span>
+                        <span class="text-[10px] font-mono font-bold uppercase bg-brandGreen text-white px-2.5 py-1.5 group-hover:bg-brandDark transition">
+                            ATUR UKURAN →
+                        </span>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // ============================================================
+        // 6. PRODUCT MODAL CONFIGURATOR & LIVE PRICE CALCULATION
+        // ============================================================
+        function openConfigModal(productId) {
+            const product = catalogProducts.find(p => p.id === productId);
+            if (!product) return;
+
+            activeModalProduct = product;
+
+            document.getElementById('modal-code').textContent = product.id;
+            document.getElementById('modal-category-label').textContent = product.type === 'BANNER' ? 'BANNER / SPANDUK CUSTOM' : 'STIKER LABEL CUSTOM';
+            document.getElementById('modal-product-title').textContent = product.title;
+            document.getElementById('modal-product-desc').textContent = product.description;
+            document.getElementById('modal-base-rate').textContent = product.rateLabel;
+            document.getElementById('m-item-note').value = '';
+
+            if (product.type === 'BANNER') {
+                document.getElementById('modal-banner-fields').classList.remove('hidden');
+                document.getElementById('modal-stiker-fields').classList.add('hidden');
+                document.getElementById('m-banner-unit').value = 'cm';
+                document.querySelectorAll('.m-unit-lbl').forEach(el => el.textContent = 'CM');
+                document.getElementById('m-banner-length').value = 200;
+                document.getElementById('m-banner-width').value = 100;
+                document.getElementById('m-banner-qty').value = 1;
+            } else {
+                document.getElementById('modal-banner-fields').classList.add('hidden');
+                document.getElementById('modal-stiker-fields').classList.remove('hidden');
+                document.getElementById('m-stiker-length').value = 5;
+                document.getElementById('m-stiker-width').value = 5;
+                document.getElementById('m-stiker-packs').value = 1;
+            }
+
+            recalculateModalPrice();
+
+            const modal = document.getElementById('config-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeConfigModal() {
+            const modal = document.getElementById('config-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function recalculateModalPrice() {
+            if (!activeModalProduct) return;
+
+            if (activeModalProduct.type === 'BANNER') {
+                const unit = document.getElementById('m-banner-unit').value;
+                const rawP = Math.max(0.1, parseFloat(document.getElementById('m-banner-length').value) || 0);
+                const rawL = Math.max(0.1, parseFloat(document.getElementById('m-banner-width').value) || 0);
+                const qty = Math.max(1, parseInt(document.getElementById('m-banner-qty').value, 10) || 1);
+
+                const pMeter = unit === 'cm' ? rawP / 100 : rawP;
+                const lMeter = unit === 'cm' ? rawL / 100 : rawL;
+                const areaM2 = pMeter * lMeter;
+                const subtotal = Math.round(areaM2 * 15000 * qty);
+
+                const dimText = `${rawP} × ${rawL} ${unit}`;
+                document.getElementById('modal-blueprint').innerHTML = generateBlueprintSVG(activeModalProduct, dimText);
+                document.getElementById('modal-formula-text').textContent = `${areaM2.toFixed(2)} m² × Rp 15.000 × ${qty} pcs`;
+                document.getElementById('modal-calculated-price').textContent = formatIDR(subtotal);
+
+                return {
+                    title: activeModalProduct.title,
+                    type: 'BANNER',
+                    dimensionSpec: `${dimText} (${areaM2.toFixed(2)} m²)`,
+                    detailSpec: `Finishing: ${document.getElementById('m-banner-finishing').value}`,
+                    qtyLabel: `${qty} pcs`,
+                    subtotal: subtotal
+                };
+            } else {
+                const pCm = Math.max(0.5, parseFloat(document.getElementById('m-stiker-length').value) || 0);
+                const lCm = Math.max(0.5, parseFloat(document.getElementById('m-stiker-width').value) || 0);
+                const packs = Math.max(1, parseInt(document.getElementById('m-stiker-packs').value, 10) || 1);
+                const totalPcs = packs * 10;
+                const subtotal = packs * 10000;
+
+                const dimText = `${pCm} × ${lCm} cm (${totalPcs} pcs)`;
+                document.getElementById('modal-blueprint').innerHTML = generateBlueprintSVG(activeModalProduct, dimText);
+                document.getElementById('modal-formula-text').textContent = `${totalPcs} pcs (${packs} paket × Rp 10.000)`;
+                document.getElementById('modal-calculated-price').textContent = formatIDR(subtotal);
+
+                return {
+                    title: activeModalProduct.title,
+                    type: 'STIKER',
+                    dimensionSpec: `${pCm} × ${lCm} cm`,
+                    detailSpec: `${document.getElementById('m-stiker-material').value} • ${document.getElementById('m-stiker-cut').value}`,
+                    qtyLabel: `${totalPcs} pcs (${packs} paket)`,
+                    subtotal: subtotal
+                };
+            }
+        }
+
+        // ============================================================
+        // 7. QUICK CALCULATOR LOGIC (ON CALCULATOR PAGE)
+        // ============================================================
+        function updateQuickBannerCalc() {
+            const unit = document.getElementById('qb-unit').value;
+            document.querySelectorAll('.qb-unit-label').forEach(el => el.textContent = unit.toUpperCase());
+
+            const rawP = Math.max(0.1, parseFloat(document.getElementById('qb-length').value) || 0);
+            const rawL = Math.max(0.1, parseFloat(document.getElementById('qb-width').value) || 0);
+            const qty = Math.max(1, parseInt(document.getElementById('qb-qty').value, 10) || 1);
+
+            const pMeter = unit === 'cm' ? rawP / 100 : rawP;
+            const lMeter = unit === 'cm' ? rawL / 100 : rawL;
+            const areaM2 = pMeter * lMeter;
+            const total = Math.round(areaM2 * 15000 * qty);
+
+            document.getElementById('qb-area-display').textContent = `${areaM2.toFixed(2)} m²`;
+            document.getElementById('qb-qty-display').textContent = `${qty} pcs`;
+            document.getElementById('qb-total-display').textContent = formatIDR(total);
+
+            return {
+                title: document.getElementById('qb-variant').value.toUpperCase(),
+                type: 'BANNER',
+                dimensionSpec: `${rawP} × ${rawL} ${unit} (${areaM2.toFixed(2)} m²)`,
+                detailSpec: `Finishing: ${document.getElementById('qb-finishing').value}`,
+                qtyLabel: `${qty} pcs`,
+                subtotal: total,
+                note: ''
+            };
+        }
+
+        function updateQuickStikerCalc() {
+            const pCm = Math.max(0.5, parseFloat(document.getElementById('qs-length').value) || 0);
+            const lCm = Math.max(0.5, parseFloat(document.getElementById('qs-width').value) || 0);
+            const packs = Math.max(1, parseInt(document.getElementById('qs-packs').value, 10) || 1);
+            const totalPcs = packs * 10;
+            const total = packs * 10000;
+
+            document.getElementById('qs-pcs-display').textContent = `${totalPcs} PCS`;
+            document.getElementById('qs-pack-display').textContent = `${packs} Paket`;
+            document.getElementById('qs-total-display').textContent = formatIDR(total);
+
+            return {
+                title: document.getElementById('qs-material').value.toUpperCase(),
+                type: 'STIKER',
+                dimensionSpec: `${pCm} × ${lCm} cm`,
+                detailSpec: `Cutting: ${document.getElementById('qs-cut').value}`,
+                qtyLabel: `${totalPcs} pcs (${packs} paket)`,
+                subtotal: total,
+                note: ''
+            };
+        }
+
+        // ============================================================
+        // 8. CART MANAGEMENT & RECEIPT GENERATOR
+        // ============================================================
+        function addItemToCart(itemObj) {
+            cart.push(itemObj);
+            updateCartUI();
+            showToast(`DITAMBAHKAN: ${itemObj.title}`);
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('header-cart-count').textContent = cart.length;
+            document.getElementById('drawer-badge').textContent = cart.length;
+
+            const container = document.getElementById('cart-items-container');
+            const formBox = document.getElementById('cart-customer-form-box');
+            const submitBtn = document.getElementById('generate-receipt-btn');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="py-12 text-center neon-box-static bg-surface p-5 space-y-2">
+                        <p class="font-display text-sm sm:text-base font-bold uppercase text-brandDark">KERANJANG MASIH KOSONG</p>
+                        <p class="text-xs text-neutral-600">Pilih banner atau stiker custom di katalog dan atur ukurannya terlebih dahulu.</p>
+                    </div>
+                `;
+                formBox.classList.add('hidden');
+                submitBtn.disabled = true;
+                document.getElementById('cart-grand-total').textContent = 'Rp 0';
+                return;
+            }
+
+            formBox.classList.remove('hidden');
+            submitBtn.disabled = false;
+
+            const grandTotal = cart.reduce((sum, item) => sum + item.subtotal, 0);
+            document.getElementById('cart-grand-total').textContent = formatIDR(grandTotal);
+
+            container.innerHTML = cart.map((item, idx) => `
+                <div class="neon-box p-3.5 bg-surface space-y-2">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <span class="text-[9px] font-mono font-bold bg-brandGreen text-white px-1.5 py-0.5 uppercase">${item.type}</span>
+                            <h4 class="font-display text-xs font-bold uppercase mt-1 text-ink">${item.title}</h4>
+                        </div>
+                        <button onclick="removeCartItem(${idx})" class="text-neutral-500 hover:text-brandDark p-1" aria-label="Hapus Item">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                    <div class="text-[11px] font-mono text-neutral-600 space-y-0.5">
+                        <p>UKURAN: <span class="text-brandDark font-bold">${item.dimensionSpec}</span></p>
+                        <p>${item.detailSpec}</p>
+                        ${item.note ? `<p class="text-neutral-500">CATATAN: ${item.note}</p>` : ''}
+                    </div>
+                    <div class="pt-2 border-t border-brandBright/40 flex items-center justify-between font-mono text-xs">
+                        <span>QTY: <strong class="text-brandDark">${item.qtyLabel}</strong></span>
+                        <span class="font-bold text-brandGreen">${formatIDR(item.subtotal)}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function generateOfficialReceipt() {
+            if (cart.length === 0) return;
+
+            const custNameInput = document.getElementById('cust-name');
+            const custPhoneInput = document.getElementById('cust-phone');
+            const custName = custNameInput.value.trim();
+            const custPhone = custPhoneInput.value.trim();
+
+            if (!custName) {
+                custNameInput.focus();
+                showToast('MOHON ISI NAMA PEMESAN');
+                return;
+            }
+            if (!custPhone) {
+                custPhoneInput.focus();
+                showToast('MOHON ISI NOMOR WHATSAPP');
+                return;
+            }
+
+            const delivery = document.getElementById('cust-delivery').value;
+            const note = document.getElementById('cust-note').value.trim();
+
+            const now = new Date();
+            const pad = (n) => String(n).padStart(2, '0');
+            const dateCode = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
+            const randomSeq = Math.floor(100 + Math.random() * 900);
+            const invoiceNo = `INV-SR-${dateCode}-${randomSeq}`;
+            const formattedDate = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())} WIB`;
+
+            const grandTotal = cart.reduce((sum, item) => sum + item.subtotal, 0);
+
+            document.getElementById('rec-inv-number').textContent = invoiceNo;
+            document.getElementById('rec-date').textContent = formattedDate;
+            document.getElementById('rec-cust-name').textContent = custName;
+            document.getElementById('rec-cust-phone').textContent = custPhone;
+            document.getElementById('rec-delivery').textContent = delivery;
+            document.getElementById('rec-grand-total').textContent = formatIDR(grandTotal);
+
+            if (note) {
+                document.getElementById('rec-note-wrapper').classList.remove('hidden');
+                document.getElementById('rec-note-text').textContent = note;
+            } else {
+                document.getElementById('rec-note-wrapper').classList.add('hidden');
+            }
+
+            document.getElementById('rec-items-list').innerHTML = cart.map((item, idx) => `
+                <div class="space-y-0.5 text-[10px] sm:text-[11px]">
+                    <div class="flex justify-between gap-2 font-bold">
+                        <span>${idx + 1}. ${item.title}</span>
+                        <span class="text-brandDark shrink-0">${formatIDR(item.subtotal)}</span>
+                    </div>
+                    <p class="text-neutral-600 pl-3">• Ukuran: ${item.dimensionSpec}</p>
+                    <p class="text-neutral-600 pl-3">• Spec: ${item.detailSpec} (${item.qtyLabel})</p>
+                    ${item.note ? `<p class="text-neutral-500 pl-3">• Note: ${item.note}</p>` : ''}
+                </div>
+            `).join('');
+
+            const itemLines = cart.map((item, idx) =>
+                `${idx + 1}. *${item.title}*\n   - Ukuran: ${item.dimensionSpec}\n   - Detail: ${item.detailSpec}\n   - Jumlah: ${item.qtyLabel}\n   - Subtotal: ${formatIDR(item.subtotal)}${item.note ? `\n   - Catatan: ${item.note}` : ''}`
+            ).join('\n\n');
+
+            lastGeneratedReceiptText =
+`*STRUK PESANAN — SUMBER RIZKI -PRINTING-*
+No. Nota : *${invoiceNo}*
+Tanggal  : ${formattedDate}
+----------------------------------------
+Pemesan  : *${custName}*
+No. WA   : ${custPhone}
+Metode   : ${delivery}
+----------------------------------------
+*RINCIAN PESANAN:*
+${itemLines}
+----------------------------------------
+*TOTAL TAGIHAN: ${formatIDR(grandTotal)}*
+${note ? `Catatan Tambahan: ${note}\n` : ''}----------------------------------------
+Alamat Toko: Jl. Perum Grand Sutera No.34 Blok D1, Leuwimekar, Kec. Leuwiliang, Kab. Bogor
+_Halo Admin Sumber Rizki Printing, berikut struk pesanan saya. Saya lampirkan file desain siap cetaknya._`;
+
+            const waUrl = `https://wa.me/${ADMIN_WA_NUMBER}?text=${encodeURIComponent(lastGeneratedReceiptText)}`;
+            document.getElementById('send-wa-receipt-btn').href = waUrl;
+
+            document.getElementById('cart-drawer').classList.add('hidden');
+            const receiptModal = document.getElementById('receipt-modal');
+            receiptModal.classList.remove('hidden');
+            receiptModal.classList.add('flex');
+
+            cart = [];
+            updateCartUI();
+            lucide.createIcons();
+        }
+
+        // ============================================================
+        // 9. INITIALIZATION & EVENT BINDINGS
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            initTransparentLogos();
+            renderCatalog();
+            updateQuickBannerCalc();
+            updateQuickStikerCalc();
+            updateCartUI();
+            lucide.createIcons();
+
+            // Multi-Page Navigation Listeners (Any button/card with data-page-target)
+            document.querySelectorAll('[data-page-target]').forEach(el => {
+                el.addEventListener('click', () => {
+                    navigateToPage(el.dataset.pageTarget);
+                });
+            });
+
+            // Left Slide-Over Navigation Drawer Controls
+            const navDrawer = document.getElementById('nav-drawer');
+            document.getElementById('nav-drawer-open-btn').addEventListener('click', () => {
+                navDrawer.classList.remove('hidden');
+            });
+            document.getElementById('nav-drawer-close-btn').addEventListener('click', () => {
+                navDrawer.classList.add('hidden');
+            });
+            document.getElementById('nav-drawer-backdrop').addEventListener('click', () => {
+                navDrawer.classList.add('hidden');
+            });
+
+            // Catalog Filter Buttons
+            document.querySelectorAll('.catalog-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.catalog-filter-btn').forEach(b => {
+                        b.className = 'catalog-filter-btn neon-box bg-paper text-ink hover:bg-surface px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition';
+                    });
+                    btn.className = 'catalog-filter-btn bg-brandGreen text-white border-[1.5px] border-brandBright px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition shadow-[0_0_12px_rgba(76,196,23,0.3)]';
+                    activeFilter = btn.dataset.filter;
+                    renderCatalog();
+                });
+            });
+
+            // Search Toggle & Input (Automatically routes to Katalog Page)
+            const searchBar = document.getElementById('search-bar');
+            const searchInput = document.getElementById('search-input');
+
+            document.getElementById('search-toggle-btn').addEventListener('click', () => {
+                searchBar.classList.toggle('hidden');
+                if (!searchBar.classList.contains('hidden')) {
+                    if (currentPage !== 'katalog') navigateToPage('katalog');
+                    searchInput.focus();
+                }
+            });
+
+            document.getElementById('search-close-btn').addEventListener('click', () => {
+                searchBar.classList.add('hidden');
+                searchInput.value = '';
+                searchKeyword = '';
+                renderCatalog();
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                if (currentPage !== 'katalog') navigateToPage('katalog');
+                searchKeyword = e.target.value;
+                renderCatalog();
+            });
+
+            document.getElementById('reset-catalog-btn').addEventListener('click', () => {
+                activeFilter = 'ALL';
+                searchKeyword = '';
+                searchInput.value = '';
+                document.querySelectorAll('.catalog-filter-btn').forEach((b, i) => {
+                    b.className = i === 0
+                        ? 'catalog-filter-btn bg-brandGreen text-white border-[1.5px] border-brandBright px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition shadow-[0_0_12px_rgba(76,196,23,0.3)]'
+                        : 'catalog-filter-btn neon-box bg-paper text-ink hover:bg-surface px-3.5 py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase transition';
+                });
+                renderCatalog();
+            });
+
+            // Product Configurator Modal Listeners
+            document.getElementById('close-config-modal').addEventListener('click', closeConfigModal);
+            document.getElementById('config-modal').addEventListener('click', (e) => {
+                if (e.target.id === 'config-modal') closeConfigModal();
+            });
+
+            document.getElementById('m-banner-unit').addEventListener('change', (e) => {
+                const u = e.target.value.toUpperCase();
+                document.querySelectorAll('.m-unit-lbl').forEach(el => el.textContent = u);
+                if (e.target.value === 'm') {
+                    document.getElementById('m-banner-length').value = 2;
+                    document.getElementById('m-banner-width').value = 1;
+                } else {
+                    document.getElementById('m-banner-length').value = 200;
+                    document.getElementById('m-banner-width').value = 100;
+                }
+                recalculateModalPrice();
+            });
+
+            ['m-banner-length', 'm-banner-width', 'm-banner-qty', 'm-banner-finishing',
+             'm-stiker-length', 'm-stiker-width', 'm-stiker-packs', 'm-stiker-material', 'm-stiker-cut'
+            ].forEach(id => {
+                document.getElementById(id).addEventListener('input', recalculateModalPrice);
+                document.getElementById(id).addEventListener('change', recalculateModalPrice);
+            });
+
+            document.getElementById('modal-add-cart-btn').addEventListener('click', () => {
+                const itemData = recalculateModalPrice();
+                if (!itemData) return;
+                itemData.note = document.getElementById('m-item-note').value.trim();
+                addItemToCart(itemData);
+                closeConfigModal();
+            });
+
+            // Quick Calculator Tabs & Live Inputs
+            const quickTabBanner = document.getElementById('quick-tab-banner');
+            const quickTabStiker = document.getElementById('quick-tab-stiker');
+            const quickPanelBanner = document.getElementById('quick-panel-banner');
+            const quickPanelStiker = document.getElementById('quick-panel-stiker');
+
+            quickTabBanner.addEventListener('click', () => {
+                quickTabBanner.className = 'py-3.5 px-2.5 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase bg-brandGreen text-white transition text-center leading-snug';
+                quickTabStiker.className = 'py-3.5 px-2.5 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase bg-paper text-ink hover:bg-surface transition border-l-[1.5px] border-brandBright text-center leading-snug';
+                quickPanelBanner.classList.remove('hidden');
+                quickPanelStiker.classList.add('hidden');
+            });
+
+            quickTabStiker.addEventListener('click', () => {
+                quickTabStiker.className = 'py-3.5 px-2.5 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase bg-brandGreen text-white transition border-l-[1.5px] border-brandBright text-center leading-snug';
+                quickTabBanner.className = 'py-3.5 px-2.5 sm:px-4 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase bg-paper text-ink hover:bg-surface transition text-center leading-snug';
+                quickPanelStiker.classList.remove('hidden');
+                quickPanelBanner.classList.add('hidden');
+            });
+
+            document.getElementById('qb-unit').addEventListener('change', (e) => {
+                if (e.target.value === 'm') {
+                    document.getElementById('qb-length').value = 2;
+                    document.getElementById('qb-width').value = 1;
+                } else {
+                    document.getElementById('qb-length').value = 200;
+                    document.getElementById('qb-width').value = 100;
+                }
+                updateQuickBannerCalc();
+            });
+
+            ['qb-length', 'qb-width', 'qb-qty', 'qb-variant', 'qb-finishing'].forEach(id => {
+                document.getElementById(id).addEventListener('input', updateQuickBannerCalc);
+                document.getElementById(id).addEventListener('change', updateQuickBannerCalc);
+            });
+
+            ['qs-length', 'qs-width', 'qs-packs', 'qs-material', 'qs-cut'].forEach(id => {
+                document.getElementById(id).addEventListener('input', updateQuickStikerCalc);
+                document.getElementById(id).addEventListener('change', updateQuickStikerCalc);
+            });
+
+            document.getElementById('qb-add-btn').addEventListener('click', () => {
+                addItemToCart(updateQuickBannerCalc());
+            });
+
+            document.getElementById('qs-add-btn').addEventListener('click', () => {
+                addItemToCart(updateQuickStikerCalc());
+            });
+
+            // Cart Drawer Controls
+            document.getElementById('cart-open-btn').addEventListener('click', () => {
+                document.getElementById('cart-drawer').classList.remove('hidden');
+            });
+            document.getElementById('cart-close-btn').addEventListener('click', () => {
+                document.getElementById('cart-drawer').classList.add('hidden');
+            });
+            document.getElementById('cart-backdrop').addEventListener('click', () => {
+                document.getElementById('cart-drawer').classList.add('hidden');
+            });
+
+            // Generate Receipt Button
+            document.getElementById('generate-receipt-btn').addEventListener('click', generateOfficialReceipt);
+
+            // Receipt Modal Actions
+            document.getElementById('close-receipt-modal').addEventListener('click', () => {
+                const modal = document.getElementById('receipt-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+
+            document.getElementById('print-pdf-btn').addEventListener('click', () => {
+                window.print();
+            });
+
+            document.getElementById('copy-receipt-btn').addEventListener('click', () => {
+                if (!lastGeneratedReceiptText) return;
+                const tempArea = document.createElement('textarea');
+                tempArea.value = lastGeneratedReceiptText;
+                document.body.appendChild(tempArea);
+                tempArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempArea);
+                showToast('TEKS STRUK BERHASIL DISALIN');
+            });
+        });
+    </script>
+</body>
+</html>
